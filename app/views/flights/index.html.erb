@@ -14,7 +14,7 @@
         <td><%= flight.description %></td>
         <td><%= link_to 'Show', flight_path(flight) %></td> 
         <td><%= link_to 'Edit', edit_flight_path(flight) %></td> 
-        <%# <td><%= link_to 'Delete', flight_path(flight), method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+        <td><%= link_to 'Delete', flight_path(flight), method: :delete, data: { confirm: 'Are you sure?' } %></td> 
     </tr>
   <% end %>
 </table>
