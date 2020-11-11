@@ -4,12 +4,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :update, Flight do |flight|
+    can :manage, Flight do |flight|
       flight.user == user
     end
-    can :destroy, Flight do |flight|
-      flight.user == user
-    end
+    # can :destroy, Flight do |flight|
+    #   flight.user == user
+    # end
 
   
   end
