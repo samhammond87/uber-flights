@@ -1,7 +1,12 @@
-<p>
-  <strong>Title:</strong>
-  <strong><%= @flight.title %></strong>
-  <br><br>
+<div class="show-img">
+  <tr>
+      <td><%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %></td>
+  </tr>
+</div>
+<br>
+  <h3><%= @flight.title %></h3>
+  <br>
+  <p>
   <strong>Cost:</strong>
   $<%= @flight.cost %>
   <br>
