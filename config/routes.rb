@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: "home#index"
   
   resources :users, :flights
+
+  get '/user' => "flights#index", :as => :user_root
 end

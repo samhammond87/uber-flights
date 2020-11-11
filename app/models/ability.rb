@@ -5,8 +5,8 @@ class Ability
 
   def initialize(user)
     can :manage, Flight do |flight|
-      flight.user == user
-    end
+    flight.user == user
+  end
     # can :destroy, Flight do |flight|
     #   flight.user == user
     # end

@@ -7,16 +7,19 @@
 <% for flight in @flights %>
     <%# <% if flight.user == current_user %> 
         <div class="link row clearfix link-overview">
-            <div class="link-rating">
                 <div>
                     <h2><%= link_to flight.title, flight_path(flight) %></h2>
                 </div>
-                <div>
+                <div class="show-img">
                   <tr>
-                      <td><%= flight.description %></td>
+                      <td><%= image_tag flight.flight_picture if flight.flight_picture.attached? %></td>
                   </tr>
                 </div>
-            </div>
+                <div>
+                    <tr>
+                        <td><%= flight.description %></td>
+                    </tr>
+                </div>
             <div>
                 <h2><small class="seller">Created <%= time_ago_in_words(flight.created_at) %> ago</small></h2>
             </div>

@@ -38,6 +38,11 @@
     <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
+
+  <div class="field">
+	<%= form.label :flight_picture %>
+	<%= form.file_field :flight_picture, accept: 'image.png, image/jpg, image/jpeg' %>
+  </div>
   </p>
  
   <p>

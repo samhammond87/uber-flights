@@ -44,7 +44,7 @@ class FlightsController < ApplicationController
 
     private
   def flight_params
-    params.require(:flight).permit(:title, :cost, :duration, :capacity, :description)
+    params.require(:flight).permit(:title, :cost, :duration, :capacity, :description, :flight_picture)
   end
 
   def set_link

@@ -89,9 +89,9 @@ nav {
 
     button {
         grid-area: button;
-        background-color: #4CAF50; /* Green */
+        // background-color: #062737; /* Navy Blue */
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         color: white;
         padding: 8px 8px;
         text-align: center;
@@ -106,13 +106,20 @@ nav {
     button {
         background-color: white; 
         color: black; 
-        border: 2px solid #4CAF50;
+        border: 2px solid red;
         text-decoration: none;
       }
       
       button:hover {
-        background-color: #4CAF50;
+        background-color: red;
         color: white;
         text-decoration: none;
       }
+}
+
+.show-img {
+    img {
+        height: 30vh;
+        margin-top: 20px;
+    }
 }
