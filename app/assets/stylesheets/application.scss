@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ */
+
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import 'home';
+@import 'flights';
+
+
+$nav-bar:#FE5F55;  
+$background: #F7F7FF; 
+$button-colors: #BDD5EA; 
+$button-font: #fff;
+
+header {
+    background-color: $nav-bar;
+    padding: 5px 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: $nav-bar;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    font-weight: 800;
+
+    /*icon sizing*/
+    // img {
+    //     width:56px; 
+    //     height:72px;
+    // }
+
+    p {
+        color: #fff;
+        margin: auto 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        padding: 3px;
+        float: left;
+        margin-right: 15px;
+        text-transform: uppercase;
+    }
+
+        a:hover {
+            text-decoration: none;
+        }
+}
+
+.link-overview {
+    width: 500px;
+    margin: 20px auto;
+    box-shadow: 10px 8px 10px;
+    border: 1px solid black;
+}
+
+.link-rating {
+    padding: 0 30px 0 10px;
+}
+
+.seller {
+    font-size: 12px;
+}
+
+.index-head {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: "sidebar-1  heading  button  sidebar-2";
+
+    h1 {
+        text-align: center;
+        text-transform: capitalize;
+        grid-area: heading;
+        }
+
+    button {
+        grid-area: button;
+        background-color: #4CAF50; /* Green */
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        margin: auto 30%;
+    }
+
+    button {
+        background-color: white; 
+        color: black; 
+        border: 2px solid #4CAF50;
+        text-decoration: none;
+      }
+      
+      button:hover {
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+      }
+}

@@ -1,4 +1,7 @@
 class FlightsController < ApplicationController
+    before_action :authenticate_user!
+    before_action :set_link, only:[:destroy, :edit, :update, :show]
+    
     def index
         @flights = Flight.all
     end
@@ -18,15 +21,13 @@ class FlightsController < ApplicationController
     end 
 
     def show
-        @flight = Flight.find(params[:id])
     end
 
     def edit
     end
 
     def update
-        @flight = Flight.find(params[:id])
-       
+        authorize! :update, @flight
         if @flight.update(flight_params)
           redirect_to @flight
         else
@@ -36,15 +37,18 @@ class FlightsController < ApplicationController
 
 
     def destroy
-        @flight = Flight.find(params[:id])
+        authorize! :destroy, @flight
         @flight.destroy
-    
         redirect_to flights_path
     end
 
     private
   def flight_params
-    params.require(:flight).permit(:title, :description)
+    params.require(:flight).permit(:title, :cost, :duration, :capacity, :description)
+  end
+
+  def set_link
+    @flight = Flight.find(params[:id])
   end
 
 end

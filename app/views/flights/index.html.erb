@@ -1,20 +1,26 @@
-<h1>All Flights</h1>
+<div class="index-head">
+  
+    <h1 class="center">All Flights</h1>
+    <button type="button" class="add-button" style="color:white"> <%= link_to 'New Flight', new_flight_path %> </button>
+</div>
 
-<%= link_to 'New Flight', new_flight_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-  </tr>
- 
-  <% @flights.each do |flight| %>
-    <tr>
-        <td><%= flight.title %></td>
-        <td><%= flight.description %></td>
-        <td><%= link_to 'Show', flight_path(flight) %></td> 
-        <td><%= link_to 'Edit', edit_flight_path(flight) %></td> 
-        <td><%= link_to 'Delete', flight_path(flight), method: :delete, data: { confirm: 'Are you sure?' } %></td> 
-    </tr>
-  <% end %>
-</table>
+<% for flight in @flights %>
+    <%# <% if flight.user == current_user %> 
+        <div class="link row clearfix link-overview">
+            <div class="link-rating">
+                <div>
+                    <h2><%= link_to flight.title, flight_path(flight) %></h2>
+                </div>
+                <div>
+                  <tr>
+                      <td><%= flight.title %></td>
+                      <td><%= flight.description %></td>
+                  </tr>
+                </div>
+            </div>
+            <div>
+                <h2><small class="seller">Created <%= time_ago_in_words(flight.created_at) %> ago</small></h2>
+            </div>
+        </div>
+    <%# <% end %> 
+<% end %>

@@ -25,11 +25,19 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Bootstrap for css styling
+gem 'bootstrap', '~> 5.0.0.alpha2'
+
+gem 'jquery-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Authentication Gem
 gem 'devise'
+
+# Authorisation Gem
+gem 'cancancan'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -2,7 +2,22 @@
   <strong>Title:</strong>
   <strong><%= @flight.title %></strong>
   <br><br>
+  <strong>Cost:</strong>
+  $<%= @flight.cost %>
+  <br>
+  <strong>Duration:</strong>
+  <%= @flight.duration %> hour(s)
+  <br>
+  <strong>Capacity:</strong>
+  <%= @flight.capacity %> people
+  <br>
+  <strong>Description:</strong>
   <%= @flight.description %>
 </p>
 
 <%= link_to 'Back', flights_path %>
+
+<% if can? :update, Flight %>
+  <%= link_to 'Edit', edit_flight_path(@flight) %>
+  <%= link_to 'Delete', flight_path(@flight), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
