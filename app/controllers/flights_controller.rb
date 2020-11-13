@@ -20,7 +20,53 @@ class FlightsController < ApplicationController
             end
     end 
 
+    # def show
+    #   session = Stripe::Checkout::Session.create(
+    #     payment_method_types: ['card'],
+    #     customer_email: current_user.email,
+    #     line_items: [{
+    #         name: @flight.title,
+    #         description: @flight.description,
+    #         images: @flight.flight_picture,
+    #         amount: @flight.cost.to_i, 
+    #         currency: 'aud',
+    #         quantity: 1,
+    #     }],
+    #     payment_intent_data: {
+    #         metadata: {
+    #             event_id: @flight.id
+    #         },
+    #     },
+      
+    #     success_url: "#{root_url}payments/success?flightId=#{@flight.id}",
+    #     cancel_url: "#{root_url}flights"
+    #   )
+    #   @session_id = session.id
+    # end
     def show
+<<<<<<< Updated upstream
+=======
+      session = Stripe::Checkout::Session.create({
+        payment_method_types: ['card'],
+        line_items: [{
+          price_data: {
+            unit_amount: 2000,
+            currency: 'usd',
+            product_data: {
+              name: 'Stubborn Attachments',
+              images: ['https://i.imgur.com/EHyR2nP.png'],
+            },
+          },
+          quantity: 1,
+        }],
+        mode: 'payment',
+        success_url: '/success.html',
+        cancel_url: '#{root_url}/cancel.html',
+      })
+      {
+        id: session.id
+      }.to_json
+>>>>>>> Stashed changes
     end
 
     def edit
