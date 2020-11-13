@@ -21,27 +21,34 @@ class FlightsController < ApplicationController
     end 
 
     def show
-      # session = Stripe::Checkout::Session.create(
-      #   payment_method_types: ['card'],
-      #   # customer email: current_user.email
-      #   line_items: [{
-      #       name: @flight.title,
-      #       description: @flight.description,
-      #       images: @flight.flight_picture,
-      #       amount: @flight.cost.to_i, 
-      #       currency: 'aud',
-      #       quantity: 1,
-      #   }],
-      #   payment_intent_data: {
-      #       metadata: {
-      #           event_id: @flight.id
-      #       }
-      #   },
-      #   success_url: "#{root_url}payments/success?flightId=#{@flight.id}",
-      #   cancel_url: "#{root_url}flights"
-      # )
-      # @session_id = session.id
-    end
+      session = Stripe::Checkout::Session.create({
+        payment_method_types: ['card'],
+        customer_email: current_user.email,
+        line_items: [{
+          price_data: {
+            unit_amount: @flight.cost.to_i,
+            currency: 'aud',
+          product_data: {
+            name: @flight.title,
+            # images: ['https://i.imgur.com/EHyR2nP.png'],
+            description: @flight.description,
+            },
+          },
+          quantity: 1,
+        }],
+              payment_intent_data: {
+              metadata: {
+                flight_id: @flight.id
+              }
+          },
+        mode: 'payment',
+          success_url: "#{root_url}payments/success?flightId=#{@flight.id}",
+          cancel_url: "#{root_url}flights"
+      })
+      
+        @session_id = session.id
+      
+  end
 
     def edit
     end
