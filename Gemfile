@@ -64,4 +64,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# S3 bucket for image upload
 gem "aws-sdk-s3", "~> 1.84"
+
+# adds payment option
+gem 'stripe'

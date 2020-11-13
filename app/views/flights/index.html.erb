@@ -3,9 +3,8 @@
     <h1 class="center">All Flights</h1>
     <button type="button" class="add-button" style="color:white"> <%= link_to 'New Flight', new_flight_path %> </button>
 </div>
-
+<div class="bui">
 <% for flight in @flights %>
-    <%# <% if flight.user == current_user %> 
         <div class="link row clearfix link-overview">
                 <div>
                     <h2><%= link_to flight.title, flight_path(flight) %></h2>
@@ -24,5 +23,5 @@
                 <h2><small class="seller">Created <%= time_ago_in_words(flight.created_at) %> ago</small></h2>
             </div>
         </div>
-    <%# <% end %> 
 <% end %>
+</div>
