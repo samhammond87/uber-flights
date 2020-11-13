@@ -20,6 +20,13 @@
   <%= @flight.description %>
 </p>
 
+<h3>Comments</h3>
+<%= render @flight.comments %>
+
+
+<h3>Add a comment:</h3>
+<%= render 'comments/form' %>
+
 <%= link_to 'Back', flights_path %>
 
 <% if can? :manage, @flight %>
