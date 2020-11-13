@@ -21,7 +21,7 @@
         <% if user_signed_in? %>
           <p>Hello, <%= "#{current_user.name}!" %> </p>
         </div>
-          <div class="cheat">
+          <div class="right">
           <%= link_to 'New', new_flight_path %>
           <%= link_to 'Flights', flights_path %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
