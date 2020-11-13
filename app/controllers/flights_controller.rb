@@ -44,8 +44,6 @@ class FlightsController < ApplicationController
     #   @session_id = session.id
     # end
     def show
-<<<<<<< Updated upstream
-=======
       session = Stripe::Checkout::Session.create({
         payment_method_types: ['card'],
         line_items: [{
@@ -66,7 +64,6 @@ class FlightsController < ApplicationController
       {
         id: session.id
       }.to_json
->>>>>>> Stashed changes
     end
 
     def edit

@@ -20,8 +20,7 @@
   <%= @flight.description %>
 </p>
 
-<<<<<<< Updated upstream
-=======
+
 <h3>Questions?</h3>
 <%= render @flight.comments %>
 
@@ -29,7 +28,6 @@
 <h3>Add a comment:</h3>
 <%= render 'comments/form' %>
 
->>>>>>> Stashed changes
 <%= link_to 'Back', flights_path %>
 
 <% if can? :manage, @flight %>
