@@ -21,6 +21,8 @@
 </p>
     <button type="button" class="add-button" style="color:white"> <%= link_to 'Add to Order', orders_path %> </button>
 
+  <button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
+
 <br><br>
 <%= link_to 'Back', flights_path %>
 <% if can? :manage, @flight %>
@@ -37,3 +39,14 @@
 <h3>Add a question:</h3>
 <%= render 'comments/form' %>
 
+<script src="https://js.stripe.com/v3/"></script>
+
+
+<script>
+    document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+        const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+        stripe.redirectToCheckout({
+            sessionId: "<%= @session_id %>"
+        });
+    });
+</script>
