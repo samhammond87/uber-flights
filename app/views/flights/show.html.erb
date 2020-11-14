@@ -16,9 +16,11 @@
   <br>
   <strong>Description:</strong>
   <%= @flight.description %>
+  <strong>Flight Id</strong>
+  <%= @flight.id %>
 </p>
+    <button type="button" class="add-button" style="color:white"> <%= link_to 'Add to Order', orders_path %> </button>
 
-<button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
 <br><br>
 <%= link_to 'Back', flights_path %>
 <% if can? :manage, @flight %>
@@ -27,18 +29,6 @@
 <% end %>
 
 <br><br>
-
-<script src="https://js.stripe.com/v3/"></script>
-
-
-<script>
-    document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-        const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-        stripe.redirectToCheckout({
-            sessionId: "<%= @session_id %>"
-        });
-    });
-</script>
 
 <h3>Questions</h3>
 <%= render @flight.comments %>
