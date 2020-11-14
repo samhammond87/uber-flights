@@ -26,7 +26,7 @@ class FlightsController < ApplicationController
         customer_email: current_user.email,
         line_items: [{
           price_data: {
-            unit_amount: @flight.cost.to_i,
+            unit_amount: (@flight.cost * 100).to_i,
             currency: 'aud',
           product_data: {
             name: @flight.title,
@@ -38,7 +38,8 @@ class FlightsController < ApplicationController
         }],
               payment_intent_data: {
               metadata: {
-                flight_id: @flight.id
+                flight_id: @flight.id,
+                user_id: current_user.id
               }
           },
         mode: 'payment',

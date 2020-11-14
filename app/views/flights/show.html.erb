@@ -1,11 +1,9 @@
 <div class="show-img">
-  <tr>
-      <td><%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %></td>
-  </tr>
+  <%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %>
 </div>
 <br>
   <h3><%= @flight.title %></h3>
-  <br>
+<br>
   <p>
   <strong>Cost:</strong>
   $<%= @flight.cost %>
