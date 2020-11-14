@@ -16,9 +16,13 @@
   <br>
   <strong>Description:</strong>
   <%= @flight.description %>
+  <strong>Flight Id</strong>
+  <%= @flight.id %>
 </p>
+    <button type="button" class="add-button" style="color:white"> <%= link_to 'Add to Order', orders_path %> </button>
 
-<button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
+  <button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
+
 <br><br>
 <%= link_to 'Back', flights_path %>
 <% if can? :manage, @flight %>
@@ -27,6 +31,13 @@
 <% end %>
 
 <br><br>
+
+<h3>Questions</h3>
+<%= render @flight.comments %>
+
+
+<h3>Add a question:</h3>
+<%= render 'comments/form' %>
 
 <script src="https://js.stripe.com/v3/"></script>
 
@@ -39,11 +50,3 @@
         });
     });
 </script>
-
-<h3>Questions</h3>
-<%= render @flight.comments %>
-
-
-<h3>Add a question:</h3>
-<%= render 'comments/form' %>
-

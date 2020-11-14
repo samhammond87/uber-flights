@@ -71,6 +71,7 @@ class FlightsController < ApplicationController
     end
 
     private
+    
   def flight_params
     params.require(:flight).permit(:title, :cost, :duration, :capacity, :description, :flight_picture)
   end
