@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :flights
+  has_many :flights, dependent: :destroy
   
   
   # Include default devise modules. Others available are:

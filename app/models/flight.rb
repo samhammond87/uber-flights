@@ -10,4 +10,10 @@ class Flight < ApplicationRecord
   presence: true
   validates :capacity, numericality: { greater_than: 0 },
   presence: true
+
+  validates :title, :user_id, presence: true
+
+  has_many :carts
+  has_many :orders, through: :carts
+
 end
