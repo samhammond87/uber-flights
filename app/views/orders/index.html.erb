@@ -1,15 +1,27 @@
 <h2>This is your list of orders:</h2>
 
-<%# <h3>Order: #<%= @order.id %>
-<%# </h3>  %>
+<h3>Order: #<%= current_user.orders %></h3> 
 
-<%# <p>You ordered <%= @order.flights.count %> 
-<%# Flights:</p> %> 
+
+<%# <%= @orders.each do |order| %>
+<%# <div> %>
+	<%# <h3>Name: <%= flight.title %>
+    <%# </h3> %> 
+	<%# <h3>Cost: <%= flight.cost %>
+    <%# </h3> %> 
+<%# </div> %>
+<%# <% end %> 
+
+<%# <p>You ordered <%= @orders.flights.count %>
+<%# Flights:</p>  %>
+<%# <%= render @flight.comments %>  
 
 <%# <ul> %>
-  <%# <% @order.flights.each do |flight| %> 
+  <%# <% @orders.flights.each do |flight| %> 
   
     <%# <li><%= flight.title %>
      <%# - <%= number_to_currency flight.cost</li>  %>
   <%# <% end %> 
 <%# </ul> %>
+
+<%= link_to 'Back', flights_path %>

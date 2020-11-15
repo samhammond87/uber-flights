@@ -19,7 +19,8 @@
   <strong>Flight Id</strong>
   <%= @flight.id %>
 </p>
-    <button type="button" class="add-button" style="color:white"> <%= link_to 'Add to Order', orders_path %> </button>
+    <button type="button" class="add-button" style="color:white"> <%= link_to 'Add to Order' %> </button>
+    <%# , user_orders_path %>
 
   <button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
 
