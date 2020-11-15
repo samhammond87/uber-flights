@@ -2,10 +2,10 @@ class OrdersController < ApplicationController
     # before_action :authenticate_user!
   
     def index
+        # current_user.orders
         @orders = Order.all
         # flights = @orders.flights.find(params[:id])
         # @user = Order.user
-        # current_user.orders
     end
   
     # def show
@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     #     if @order.save
     #         redirect_to @orders
     #     else 
-    #         render 'new'
+    #         
     #     end
     # end
       

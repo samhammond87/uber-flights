@@ -1,9 +1,10 @@
 class Order < ApplicationRecord
-  before_validation :set_total!
+  # before_validation :set_total!
+  
   belongs_to :user
+  
   has_many :carts
-  has_many :flights
-  # , through: :carts
+  has_many :flights, through: :carts
 
   # validates :total, presence: true, 
   # numericality: { greater_than_or_equal_to: 0 }

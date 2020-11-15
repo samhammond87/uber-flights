@@ -2,19 +2,23 @@
 
 <h3>Order: #<%= current_user.orders %></h3> 
 
+  <%# <%= @orders.id %>
+  <%# <%= @orders.flight.id %>
+  <%# <%= @orders.user.id%> 
+<%= @orders %>
 
 <%# <%= @orders.each do |order| %>
 <%# <div> %>
-	<%# <h3>Name: <%= flight.title %>
+	<%# <h3>Name: <%= order.flight.title %>
     <%# </h3> %> 
-	<%# <h3>Cost: <%= flight.cost %>
+	<%# <h3>Cost: <%= order.flight.cost %>
     <%# </h3> %> 
 <%# </div> %>
 <%# <% end %> 
 
 <%# <p>You ordered <%= @orders.flights.count %>
 <%# Flights:</p>  %>
-<%# <%= render @flight.comments %>  
+ 
 
 <%# <ul> %>
   <%# <% @orders.flights.each do |flight| %> 
@@ -24,4 +28,5 @@
   <%# <% end %> 
 <%# </ul> %>
 
+<br>
 <%= link_to 'Back', flights_path %>
