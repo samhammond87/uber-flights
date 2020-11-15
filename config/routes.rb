@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "home#index"
   
+  devise_for :users
+
+  resources :users do
+    resources :orders, :only => [:index, :show, :create]
+  end
+
   resources :flights do
     resources :comments
   end
 
-  resources :orders, :only => [:index, :show, :create]
+  # resources :orders, :only => [:index, :show, :create]
 
   get '/user' => "flights#index", :as => :user_root
 

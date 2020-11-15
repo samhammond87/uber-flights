@@ -1,28 +1,30 @@
 class OrdersController < ApplicationController
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
   
     def index
-      current_user.orders
+        @orders = Order.all
+        # flights = @orders.flights.find(params[:id])
+        # @user = Order.user
+        # current_user.orders
     end
   
-    def show
-        current_user.orders.find(params[:id])
-        # @flight = Flight.find(params[:id])
-    end
+    # def show
+    #     current_user.orders.find(params[:id])
+    # end
 
-    def create
-        order = current_user.orders.build(order_params)
-        if order.save
-            render json: order, status: 201, location: [:api, current_user, order]
-        else
-            render json: { errors: order.errors }, status: 422
-        end
-    end
+    # def create
+    #     @order = current_user.orders.build(order_params)
+    #     if @order.save
+    #         redirect_to @orders
+    #     else 
+    #         render 'new'
+    #     end
+    # end
       
     private
     
-    def order_params
-        params.require(:order).permit(:flight_ids => [])
-    end
+    # def order_params
+    #     params.require(:order).permit(:total, :flight_ids => [])
+    # end
 
 end
