@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :flights, dependent: :destroy
-  has_many :orders, dependent: :destroy
+  has_many :carts, dependent: :destroy
+  has_many :cart_flights, through: :carts, source: :flights
   
   
   # Include default devise modules. Others available are:

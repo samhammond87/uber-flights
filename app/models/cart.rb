@@ -1,4 +1,11 @@
 class Cart < ApplicationRecord
-  belongs_to :order, inverse_of: :carts
-  belongs_to :flight, inverse_of: :carts
+  # self.table_name = 'carts'
+  belongs_to :flight
+  belongs_to :user
+
+  def total_cost
+    flight.cost.to_i * quantity.to_i
+  end
+
+  
 end
