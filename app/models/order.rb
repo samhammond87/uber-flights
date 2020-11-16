@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   # before_validation :set_total!
   
-  # belongs_to :user
+  belongs_to :user
   
   has_many :carts, dependent: :destroy
 
@@ -17,10 +17,14 @@ class Order < ApplicationRecord
     current_item
   end
 
+  def total_cost
+    carts.to_a.sum { |item| item.total_cost }
+  end
 
 
 
-  # has_many :flights, through: :carts
+
+  # has_many :flights, through: :orders
 
   # validates :total, presence: true, 
   # numericality: { greater_than_or_equal_to: 0 }

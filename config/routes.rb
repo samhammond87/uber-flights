@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root to: "home#index"
   resources :carts
-  resources :orders
+  # resources :orders
   resources :flights do
     resources :comments
+    resources :carts, only: [:create]
   end
   
   devise_for :users

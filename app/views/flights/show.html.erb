@@ -21,10 +21,16 @@
   <button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
 
   <br><br>
-    <button type="button" class="btn btn-outline-success"><%= link_to 'Add to Order' %> </button> 
-    <%# , user_orders_path %>
+    <%# <% if !current_user.cart_flights.include? @flight %> %>
+
+    <button type="button" class="btn btn-outline-success"><%= link_to 'Add to Order', flight_carts_path(@flight), method: :post %> </button> 
+
+    <%# <% end %> %>
+    
     <br><br>
   <button type="button" class="btn btn-outline-success"><%= link_to 'Back', flights_path %></button>
+
+  
 
   <% if can? :manage, @flight %>
      <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_flight_path(@flight) %></button>
@@ -54,3 +60,4 @@
         });
     });
 </script>
+

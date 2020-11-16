@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_005654) do
+ActiveRecord::Schema.define(version: 2020_11_16_034347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 2020_11_16_005654) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "flight_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "quantity", default: 1
+    t.bigint "user_id", null: false
+    t.bigint "flight_id", null: false
     t.index ["flight_id"], name: "index_carts_on_flight_id"
-    t.index ["order_id"], name: "index_carts_on_order_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_005654) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "flights"
-  add_foreign_key "carts", "orders"
+  add_foreign_key "carts", "users"
   add_foreign_key "comments", "flights"
   add_foreign_key "flights", "users"
   add_foreign_key "orders", "users"

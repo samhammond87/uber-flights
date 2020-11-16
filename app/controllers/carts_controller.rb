@@ -1,13 +1,12 @@
 class CartsController < ApplicationController
-    include CurrentOrder
-    before_action :set_cart, only [:show, :edit, :update, :destroy]
-    before_action :set_order, only: [:create]
+    before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
     def index
-        @carts = Cart.all
+        @carts = current_user.carts
     end
 
     def show
+        
     end
 
     def new
@@ -19,15 +18,13 @@ class CartsController < ApplicationController
 
     def create
         flight = Flight.find(params[:flight_id])
-        @cart = @order.add_flight(cart_params)
+        @cart = current_user.carts.build(flight: flight)
 
         respond_to do |format|
-            if
-            format.html { redirect_to @cart.order, notice: 'Flight added to Cart' }
-            format.json { render :show, status: :created, location: @cart}
+            if @cart.save
+            format.html { redirect_to flight, notice: 'Flight added to Cart' }
             else
             format.html { render :new }
-            format.json { render json: @cart.errors, status: :unprocessable_entity }
             end
         end
     end
@@ -36,18 +33,17 @@ class CartsController < ApplicationController
         respond_to do |format|
             if @cart.update(cart_params)
                 format.html { redirect_to @cart, notice: 'Cart successfully updated.' }
-                format.json { render :show, status: :ok, location: @cart }
             else
                 format.html { render :new }
-                format.json { render json: @cart.errors, status: :unprocessable_entity }
             end
         end
     end
 
     def destroy
+        # @order = Order.find(session[:order_id])
         @cart.destroy
         respond_to do |format|
-            format.html { redirect_to carts_url, notice: 'Flight successfully deleted.' }
+            format.html { redirect_to order_path(@order), notice: 'Flight successfully deleted.' }
             format.json { head :no_content }
         end
     end
@@ -58,4 +54,7 @@ class CartsController < ApplicationController
         @cart = Cart.find(params[:id])
     end
 
+    def cart_params
+        params.require(:cart).permit(:flight_id)
+    end
 end
