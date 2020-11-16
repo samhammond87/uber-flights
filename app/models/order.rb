@@ -11,7 +11,11 @@ class Order < ApplicationRecord
 
   validates :user_id, presence: true
 
-  # def set_total!
-  #   self.total = flights.map(&:cost).sum
-  # end
+  def set_total!
+    self.total = flights.map(&:cost).sum
+  end
+
+  def total_price
+    flight.cost.to_i * quantity.to_i
+  end
 end

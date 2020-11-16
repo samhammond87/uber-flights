@@ -1,42 +1,47 @@
-<div class="show-img">
-  <%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %>
-</div>
-<br>
-  <h3><%= @flight.title %></h3>
-<br>
-  <p>
-  <strong>Cost:</strong>
-  $<%= @flight.cost %>
+  <div class="show-img">
+    <%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %>
+  </div>
   <br>
-  <strong>Duration:</strong>
-  <%= @flight.duration %> hour(s)
+    <h3><%= @flight.title %></h3>
   <br>
-  <strong>Capacity:</strong>
-  <%= @flight.capacity %> people
-  <br>
-  <strong>Description:</strong>
-  <%= @flight.description %>
-</p>
-    <button type="button" class="add-button" style="color:white"> <%= link_to 'Add to Order' %> </button>
-    <%# , user_orders_path %>
+    <p>
+    <strong>Cost:</strong>
+    $<%= @flight.cost %>
+    <br>
+    <strong>Duration:</strong>
+    <%= @flight.duration %> hour(s)
+    <br>
+    <strong>Capacity:</strong>
+    <%= @flight.capacity %> people
+    <br>
+    <strong>Description:</strong>
+    <%= @flight.description %>
+  </p>
 
   <button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
 
-<br><br>
-<%= link_to 'Back', flights_path %>
-<% if can? :manage, @flight %>
-  <%= link_to 'Edit', edit_flight_path(@flight) %>
-  <%= link_to 'Delete', flight_path(@flight), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+  <br><br>
+    <button type="button" class="btn btn-outline-success"><%= link_to 'Add to Order' %> </button> 
+    <%# , user_orders_path %>
+    <br><br>
+  <button type="button" class="btn btn-outline-success"><%= link_to 'Back', flights_path %></button>
 
-<br><br>
+  <% if can? :manage, @flight %>
+     <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_flight_path(@flight) %></button>
 
-<h3>Questions</h3>
-<%= render @flight.comments %>
+     <button type="button" class="btn btn-outline-success"><%= link_to 'Delete', flight_path(@flight), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+
+  <% end %>
+
+  <br><br>
+
+  <h3>Questions</h3>
+  <br>
+  <%= render @flight.comments %>
 
 
-<h3>Add a question:</h3>
-<%= render 'comments/form' %>
+  <h3>Add a question:</h3>
+  <%= render 'comments/form' %>
 
 <script src="https://js.stripe.com/v3/"></script>
 
