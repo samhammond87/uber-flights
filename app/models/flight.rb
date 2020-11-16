@@ -2,7 +2,7 @@ class Flight < ApplicationRecord
   belongs_to :user
 
   has_many :carts
-  has_many :orders, through: :carts
+  # has_many :orders, through: :carts
 
   has_many :comments, dependent: :destroy
   
