@@ -1,7 +1,9 @@
 <h3>Current Cart</h3>
-
+<%# <%= total_cost %>
 <% @carts.each do |cart| %>
 <%= cart.flight.title %>
-<%= cart.flight.cost %>
-
+$<%= cart.flight.cost %>
+<br>
 <% end %>
+<br><br>
+  <button type="button" class="btn btn-outline-success"><%= link_to 'Keep Shopping', flights_path %></button>

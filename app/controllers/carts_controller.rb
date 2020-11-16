@@ -22,7 +22,7 @@ class CartsController < ApplicationController
 
         respond_to do |format|
             if @cart.save
-            format.html { redirect_to flight, notice: 'Flight added to Cart' }
+            format.html { redirect_to carts_path, notice: 'Flight added to Cart' }
             else
             format.html { render :new }
             end
