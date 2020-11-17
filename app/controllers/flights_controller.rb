@@ -30,7 +30,7 @@ class FlightsController < ApplicationController
             currency: 'aud',
           product_data: {
             name: @flight.title,
-            # images: ['https://i.imgur.com/EHyR2nP.png'],
+            images: ["uber_flights_logo.png"],
             description: @flight.description,
             },
           },

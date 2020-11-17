@@ -12,24 +12,23 @@
   <body>
     <header>
       <nav>
-        <%# <div class="start"> %>
-        <%# <%= link_to flights_path %> 
-         <%# do %> 
-           <%# <%= image_tag "logov1.png" %> 
-         <%# <% end %>
-        
+          <%# <%= link_to flights_path do %> 
+              <%# <%= image_tag "uber_flights_logo.png" %> 
+          <%# <% end %> 
+
         <% if user_signed_in? %>
           <p>Hello, <%= "#{current_user.name}!" %> </p>
-        </div>
+        <%# </div> %>
           <div class="right">
-          <%= link_to 'Cart', carts_path %>
+          <%= link_to '🛍 Shopping Cart 🛍', carts_path %>
           <%= link_to 'New', new_flight_path %>
           <%= link_to 'Flights', flights_path %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
         <% else %>
-          <%= link_to "Sign In", new_user_session_path %>
-          <%= link_to "Sign Up", new_user_registration_path %> 
+          <%# <%= link_to "Sign In", new_user_session_path %>
+          <%# <%= link_to "Sign Up", new_user_registration_path %> 
+          </div>
         </div>
         <% end %>
       </nav>

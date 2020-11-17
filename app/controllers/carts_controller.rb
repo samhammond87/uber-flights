@@ -2,7 +2,37 @@ class CartsController < ApplicationController
     before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
     def index
-        @carts = current_user.carts
+        @carts = current_user.carts.includes(:flight).where(purchased_at: nil)
+        @total = @carts.inject(0) { |acc, cart| acc + cart.flight.cost }
+
+        session = Stripe::Checkout::Session.create({
+            
+            payment_method_types: ['card'],
+            customer_email: current_user.email,
+            line_items: [{
+              price_data: {
+                unit_amount: (@total * 100).to_i,
+                currency: 'aud',
+              product_data: {
+                name: @total,
+                # images: ["uber_flights_logo.png"],
+                # description: @flight.description,
+                },
+              },
+              quantity: 1,
+            }],
+            payment_intent_data: {
+                metadata: {
+                cart_id: @carts,
+                user_id: current_user.id
+                }
+            },
+            mode: 'payment',
+              success_url: "#{root_url}payments/success",
+              cancel_url: "#{root_url}flights"
+          })
+          
+            @session_id = session.id
     end
 
     def show
@@ -13,16 +43,14 @@ class CartsController < ApplicationController
         @cart = Cart.new
     end
 
-    def edit
-    end
-
     def create
+        p "********************************"
         flight = Flight.find(params[:flight_id])
         @cart = current_user.carts.build(flight: flight)
 
         respond_to do |format|
             if @cart.save
-            format.html { redirect_to flight, notice: 'Flight added to Cart' }
+            format.html { redirect_to carts_path, notice: 'Flight added to Cart' }
             else
             format.html { render :new }
             end
