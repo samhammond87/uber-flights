@@ -6,15 +6,16 @@
  <%# </button> %>
 
 <div class="flex-container">
-    <h3>Welcome! Please sign in or sign up to check out the amazing deals on scenic flights across Australia</h3>
-
+    <h1>Welcome To Uber Flights!</h1>
+    <br>
+    <br>
+    <h3>Please sign in or sign up to check out the amazing deals on scenic flights across Australia</h3>
+    <br>
+    <br>
     <div class="button-box">
-        <button type="button" class="btn btn-info btn-lg" style="color:white"><%= link_to 'Sign Up', new_user_registration_path %> </button>
-        <button type="button" class="btn btn-info btn-lg" style="color:white"><%= link_to 'Login', new_user_session_path %> </button>
+        <button type="button" class="btn btn-light btn-lg" style="color:white"><%= link_to 'Sign Up', new_user_registration_path %> </button>
+        <button type="button" class="btn btn-light btn-lg" style="color:white"><%= link_to 'Login', new_user_session_path %> </button>
     </div>
-
-    <%= image_tag "uber_flights_logo.png", alt: "uber flights hero image", class: "hero-img" %>
-
 </div>
 
 

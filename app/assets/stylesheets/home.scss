@@ -8,6 +8,7 @@
     height: 50vh;
     margin: 2% auto;
     padding-top: 10px;
+    background-color: #062737;
     
     img {
         width: 60vw;   
@@ -16,10 +17,16 @@
         margin: 0px auto;
     }
 
+    h1 {
+        text-align: center;
+        font-style: oblique;
+        color: white;
+    }
+
     h3 {
         text-align: center;
-        font-size: 26px;
         font-style: oblique;
+        color: white;
     }
 
     .button-box {
