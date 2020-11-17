@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "home#index"
   resources :carts
-  # resources :orders
+
   resources :flights do
     resources :comments
     resources :carts, only: [:create]
@@ -9,10 +9,9 @@ Rails.application.routes.draw do
   
   devise_for :users
 
+  # get "/:page" => "about#show"
+  resources :about, only: [:index]
 
-
-
-  # resources :orders, :only => [:index, :show, :create]
 
   get '/user' => "flights#index", :as => :user_root
 

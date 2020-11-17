@@ -1,14 +1,21 @@
+<%# <h1>Welcome to Uber Flights!</h1>
+
+
+<button type="button" class="add-button" style="color:white"> <%= link_to 'Sign In', new_user_session_path %> </button>
+<%# <button type="button" class="add-button" style="color:white"> <%= link_to 'Sign Up', new_user_registration_path %>
+ <%# </button> %>
+
 <div class="flex-container">
-    <div class= "home-text">
-        <h1>Welcome To Uber Flights!</h1>
-        <br>
-        <h3>Please sign in or sign up to help out a Pilot</h3>
-        <h3>and join them on a scenic flight of iconic Australian features</h3>
-        <br>
-        <div class="button-box">
-            <button type="button" class="btn btn-light btn-lg" style="color:white"><%= link_to 'Sign Up', new_user_registration_path %> </button>
-            <button type="button" class="btn btn-light btn-lg" style="color:white"><%= link_to 'Sign In', new_user_session_path %> </button>
-        </div>
+    <h1>Welcome To Uber Flights!</h1>
+    <br>
+    <br>
+    <h3>Please sign in or sign up to check out the amazing deals on scenic flights across Australia</h3>
+    <br>
+    <br>
+    <div class="button-box">
+        <button type="button" class="btn btn-light btn-lg" style="color:white"><%= link_to 'Sign Up', new_user_registration_path %> </button>
+        <button type="button" class="btn btn-light btn-lg" style="color:white"><%= link_to 'Sign In', new_user_session_path %> </button>
     </div>
 </div>
+
 
