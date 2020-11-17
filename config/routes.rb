@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   # get "/:page" => "about#show"
-  resources :about, only: [:index]
-
+  # resources :about, only: [:index]
+  get '/about' => "about#index"
 
   get '/user' => "flights#index", :as => :user_root
 
