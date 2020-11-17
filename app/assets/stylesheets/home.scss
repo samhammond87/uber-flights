@@ -1,36 +1,39 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
 .flex-container {
-    display: flex;
-    flex-direction: column;
-    width: 70vw;
-    height: 50vh;
-    margin: 2% auto;
-    padding-top: 10px;
-    background-color: #062737;
-    
-    img {
-        width: 60vw;   
-        height: 100vh;
-        background-color: #1e89cb;
-        margin: 0px auto;
+    background-image: image-url('test.jpg'); 
+    // opacity: 0.8;
+    width: 100vw;
+    height: 100vh;
+
+
+    .home-text {
+        padding-top: 75px;
+
     }
 
     h1 {
         text-align: center;
         font-style: oblique;
-        color: white;
+        color: #062737;
     }
 
     h3 {
         text-align: center;
         font-style: oblique;
-        color: white;
+        color: #062737;
     }
 
     .button-box {
         margin: 10px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 }
+
