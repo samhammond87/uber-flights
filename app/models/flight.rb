@@ -1,5 +1,5 @@
 class Flight < ApplicationRecord
-  before_destroy :not_referenced_by_any_cart
+  # before_destroy :not_referenced_by_any_cart
   belongs_to :user
 
   has_many :carts
@@ -26,11 +26,11 @@ class Flight < ApplicationRecord
 
   private
 
-  def not_referenced_by_any_cart
-    unless cart.empty?
-      errors.add(:base, "Cart present")
-      throw :abort
-    end
-  end
+  # def not_referenced_by_any_cart
+  #   unless cart.empty?
+  #     errors.add(:base, "Cart present")
+  #     throw :abort
+  #   end
+  # end
 
 end

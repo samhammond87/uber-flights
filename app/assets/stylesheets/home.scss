@@ -6,7 +6,7 @@
 
 .flex-container {
     background-image: image-url('test.jpg'); 
-    // opacity: 0.8;
+    opacity: 0.9;
     width: 100vw;
     height: 100vh;
 
@@ -20,6 +20,7 @@
         text-align: center;
         font-style: oblique;
         color: #062737;
+        text-decoration: underline;
     }
 
     h3 {

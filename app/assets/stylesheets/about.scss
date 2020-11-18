@@ -5,9 +5,21 @@
 .about-text {
     text-align: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 50px 200px 50px 200px;
+    margin: 25px 200px 50px 200px;
+
+    img {
+        // width: 60vw;   
+        height: 50vh;
+        margin: 0px auto;
+        margin: 25px;
+    }
 }
+
+h1 {
+    text-decoration: underline;
+}
+

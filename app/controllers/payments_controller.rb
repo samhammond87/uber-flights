@@ -1,12 +1,12 @@
 class PaymentsController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:webhook]
     def success
-        p "......................"
+        # p "......................"
         # cart.cart_flights.purchased_at = timestamp
         # Time.now 
         p params
-        p "*******************"
-        p params[:cart]
+        # p "*******************"
+        # p params[:cart]
     end
 
     def webhook

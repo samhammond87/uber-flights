@@ -44,7 +44,7 @@ class CartsController < ApplicationController
     end
 
     def create
-        p "********************************"
+
         flight = Flight.find(params[:flight_id])
         @cart = current_user.carts.build(flight: flight)
 
