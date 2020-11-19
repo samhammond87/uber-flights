@@ -9,19 +9,16 @@
 <br>
 <br>
 
-<button type="button" class="btn btn-outline-success"><%= link_to 'Keep Shopping', flights_path %></button>
+<%= link_to 'Keep Shopping', flights_path,  class: "btn btn-success btn-lg my-2" %> 
 
 <button data-stripe="payment">Checkout <%= number_to_currency(@total) %></button>
 
-<%= hidden_field_tag @carts %>
-
-
-  <script src="https://js.stripe.com/v3/"></script>
-  <script>
-      document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-          const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-          stripe.redirectToCheckout({
-              sessionId: "<%= @session_id %>"
-          });
-      });
-  </script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+        const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+        stripe.redirectToCheckout({
+            sessionId: "<%= @session_id %>"
+        });
+    });
+</script>

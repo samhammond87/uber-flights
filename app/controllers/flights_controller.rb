@@ -2,8 +2,10 @@ class FlightsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_link, only:[:destroy, :edit, :update, :show]
     
+    # .includes for eager loading
+    
     def index
-        @flights = Flight.all
+        @flights = Flight.includes(:user, flight_picture_attachment: :blob)
     end
     
     def new

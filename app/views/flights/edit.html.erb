@@ -1,5 +1,10 @@
-<div>
+<div class= "form">
     <h1>Edit Flight</h1>
-
-    <%= render 'form' %>
+    <div class="show-img">
+        <%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %>
+    </div>
+    <br>
+    <div class= "input">
+        <%= render 'form' %>
+    </div>
 </div>

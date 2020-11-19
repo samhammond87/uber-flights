@@ -6,13 +6,8 @@ class Ability
   def initialize(user)
     can :manage, Flight do |flight|
     flight.user == user
-  end
-    # can :destroy, Flight do |flight|
-    #   flight.user == user
-    # end
-
-  
-  end
+  end  
+end
   # def initialize(user)
   #   user ||= User.new # guest user (not logged in)
   #     if user.admin?

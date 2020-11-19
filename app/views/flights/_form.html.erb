@@ -22,12 +22,12 @@
  
   <p>
     <%= form.label :cost %><br>
-    <%= form.number_field :cost %>
+    <%= form.number_field :cost, step: :any %>
   </p>
 
   <p>
     <%= form.label :duration %><br>
-    <%= form.number_field :duration %>
+    <%= form.number_field :duration, step: :any %>
   </p>
 
   <p>
@@ -41,7 +41,7 @@
 
   <div class="field">
 	<%= form.label :flight_picture %>
-	<%= form.file_field :flight_picture, accept: 'image.png, image/jpg, image/jpeg' %>
+	<%= form.file_field :flight_picture, accept: 'image.png, image.jpg, image.jpeg' %>
   </div>
   </p>
  

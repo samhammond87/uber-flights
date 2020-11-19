@@ -1,13 +1,13 @@
 <div class="flex-container">
     <div class= "home-text">
-        <h1>Welcome To Uber Flights!</h1>
+<h1 class="display-1">Welcome To Uber Flights!</h1>
         <br>
-        <h3>Please sign in or sign up to help out a Pilot</h3>
-        <h3>and join them on a scenic flight of iconic Australian features</h3>
+<h1 class="display-4">Sign in or sign up if you miss flying...</h1>
         <br>
         <div class="button-box">
-            <button type="button" class="btn btn-light btn-lg" style="color:white"><%= link_to 'Sign Up', new_user_registration_path %> </button>
-            <button type="button" class="btn btn-light btn-lg" style="color:white"><%= link_to 'Sign In', new_user_session_path %> </button>
+            <%= link_to 'Sign Up', new_user_registration_path,  class: "btn btn-info btn-lg my-2" %> 
+            <%= link_to 'Sign In', new_user_session_path, class: "btn btn-light btn-lg my-2" %> 
         </div>
+
     </div>
 </div>

@@ -1,54 +1,47 @@
-  <div class="show-img">
-    <%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %>
+<div class= "display">  
+  <div class= "flight-card">
+      <h1>Create a Flight</h1> 
+      <div class="show-img">
+        <%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %>
+      </div>
+      <br>
+        <h3><%= @flight.title %></h3>
+      <br>
+        <p>
+        <strong>Cost:</strong>
+        $<%= @flight.cost %>
+        <br>
+        <strong>Duration:</strong>
+        <%= @flight.duration %> hour(s)
+        <br>
+        <strong>Capacity:</strong>
+        <%= @flight.capacity %> people
+        <br>
+        <strong>Description:</strong>
+        <%= @flight.description %>
+      </p>
+
+      <button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
+
+      <%= link_to 'Add to Order', flight_carts_path(@flight), method: :post, class: "btn btn-success btn-lg my-2" %>
+      <div class= "button-order">    
+        <%= link_to 'Back', flights_path, class: "btn btn-info btn-lg my-2" %> 
+
+        <% if can? :manage, @flight %>
+          <%= link_to 'Edit', edit_flight_path(@flight), class: "btn btn-info btn-lg my-2" %> 
+
+          <%= link_to 'Delete', flight_path(@flight), method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-info btn-lg my-2" %> 
+        <% end %>
+      </div>
   </div>
-  <br>
-    <h3><%= @flight.title %></h3>
-  <br>
-    <p>
-    <strong>Cost:</strong>
-    $<%= @flight.cost %>
-    <br>
-    <strong>Duration:</strong>
-    <%= @flight.duration %> hour(s)
-    <br>
-    <strong>Capacity:</strong>
-    <%= @flight.capacity %> people
-    <br>
-    <strong>Description:</strong>
-    <%= @flight.description %>
-  </p>
+  <div class= "questions">
+      <h3>Questions:</h3>
+      <br>
+      <%= render @flight.comments %>
 
-  <button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
-
-  <br><br>
-    <%# <% if !current_user.cart_flights.include? @flight %> 
-
-    <button type="button" class="btn btn-outline-success"><%= link_to 'Add to Order', flight_carts_path(@flight), method: :post %> </button> 
-
-    <%# <% end %> 
-    
-    <br><br>
-  <button type="button" class="btn btn-outline-success"><%= link_to 'Back', flights_path %></button>
-
-  
-
-  <% if can? :manage, @flight %>
-     <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_flight_path(@flight) %></button>
-
-     <button type="button" class="btn btn-outline-success"><%= link_to 'Delete', flight_path(@flight), method: :delete, data: { confirm: 'Are you sure?' } %></button>
-
-  <% end %>
-
-  <br><br>
-
-  <h3>Questions</h3>
-  <br>
-  <%= render @flight.comments %>
-
-
-  <h3>Add a question:</h3>
-  <%= render 'comments/form' %>
-
+      <%= render 'comments/form' %>
+  </div>
+</div>
 <script src="https://js.stripe.com/v3/"></script>
 
 
