@@ -1,18 +1,21 @@
-<h3>Current Cart</h3>
+<div class= "cart-form">
+    <h3>Shopping Cart</h3>
+    <div class="show-img">
+        <%= image_tag "test.jpg" %>
+    </div>  
+    <% @carts.each do |cart| %>
+    <strong><%= cart.flight.title %></strong>
+    $<%= cart.flight.cost %>
+    <br>  
+    <% end %>
 
-<% @carts.each do |cart| %>
-  <%= cart.flight.title %>
-  $<%= cart.flight.cost %>
-  <br>  
-<% end %>
+    <br>
+    <br>
 
-<br>
-<br>
+    <%= link_to 'Keep Shopping', flights_path,  class: "btn btn-success btn-lg my-2" %> 
 
-<%= link_to 'Keep Shopping', flights_path,  class: "btn btn-success btn-lg my-2" %> 
-
-<button data-stripe="payment">Checkout <%= number_to_currency(@total) %></button>
-
+    <button data-stripe="payment">Checkout <%= number_to_currency(@total) %></button>
+</div>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
     document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
