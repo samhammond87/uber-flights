@@ -1,5 +1,9 @@
-<h1>New Flight</h1>
-
-<%= render 'form' %>
- 
-<%= link_to 'Back', flights_path, class: "btn btn-success btn-lg my-2" %>
+<div class= "form">
+    <h1>New Flight</h1>
+    <div class="show-img">
+        <%= image_tag "test.jpg" %>
+    </div> 
+    <%= render 'form' %>
+    
+    <%= link_to 'Back', flights_path, class: "btn btn-success btn-lg my-2" %>
+</div>

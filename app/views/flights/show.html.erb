@@ -1,6 +1,5 @@
 <div class= "display">  
-  <div class= "flight-card">
-      <h1>Create a Flight</h1> 
+  <div class= "flight-card"> 
       <div class="show-img">
         <%= image_tag @flight.flight_picture if @flight.flight_picture.attached? %>
       </div>
@@ -23,7 +22,7 @@
 
       <button data-stripe="payment">Buy flight <%= number_to_currency(@flight.cost) %></button>
 
-      <%= link_to 'Add to Order', flight_carts_path(@flight), method: :post, class: "btn btn-success btn-lg my-2" %>
+      <%= link_to 'Add to Shopping Cart', flight_carts_path(@flight), method: :post, class: "btn btn-success btn-lg my-2" %>
       <div class= "button-order">    
         <%= link_to 'Back', flights_path, class: "btn btn-info btn-lg my-2" %> 
 
